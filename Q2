@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main() {
+    char inputString[100];
+    int vowelCount = 0, consonantCount = 0;
+    printf("Enter your name: ");
+    fgets(inputString, 100, stdin);
+    for (int charIndex = 0; inputString[charIndex] != '\0'; charIndex++) {
+        inputString[charIndex] = tolower(inputString[charIndex]);
+        if (isalpha(inputString[charIndex])) {
+            if (strchr("aeiou", inputString[charIndex])) {
+                vowelCount++;
+            } else {
+                consonantCount++;
+            }
+        }
+    }
+    printf("Number of vowels: %d\n", vowelCount);
+    printf("Number of consonants: %d", consonantCount);
+    return 0;
+}

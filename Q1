@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main(){
+    int number, index;
+    int binaryArray[100];
+    printf("Enter the number: ");
+    scanf("%d", &number);
+    for (index = 0; number != 0; index++) {
+        binaryArray[index] = number % 2;
+        number /= 2;
+    }
+    binaryArray[index] = '\0';
+    for (int reverseIndex = index - 1; reverseIndex >= 0; reverseIndex--) {
+        printf("%d", binaryArray[reverseIndex]);
+    }
+    return 0;
+}

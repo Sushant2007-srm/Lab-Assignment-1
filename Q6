@@ -1,0 +1,20 @@
+#include<stdio.h>
+int calculateHCF(int num1, int num2, int divisor);
+int main() {
+    int num1, num2, smallest, hcfResult;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+    
+    smallest = (num1 > num2) ? num2 : num1;
+    hcfResult = calculateHCF(num1, num2, smallest);
+    
+    printf("HCF of two numbers %d and %d is %d", num1, num2, hcfResult);
+    return 0;
+}
+int calculateHCF(int num1, int num2, int divisor) {
+    if (num1 % divisor == 0 && num2 % divisor == 0) {
+        return divisor;
+    } else {
+        return calculateHCF(num1, num2, divisor - 1);
+    }
+}
